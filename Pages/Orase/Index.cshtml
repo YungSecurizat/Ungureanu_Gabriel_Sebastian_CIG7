@@ -1,0 +1,54 @@
+﻿@page
+@model Ungureanu_Gabriel_Sebastian_CIG7.Pages.Orase.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orase</h1>
+
+<p>
+    <a asp-page="Create">Creeaza</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].OrasGara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].Strada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].OraDeschidere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].OraInchidere)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Oras) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrasGara)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Strada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OraDeschidere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OraInchidere)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
